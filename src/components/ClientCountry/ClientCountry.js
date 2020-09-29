@@ -18,8 +18,8 @@ const UserCountry = () => {
     useEffect(() => {
         const locateIP = async (ipAddress) => {
             let location = await getIPLocation(ipAddress);
-            console.log(location);
-            setIPLocation(location);
+            // console.log(location);
+            // setIPLocation(location);
         }
         if(clientIP) {locateIP(clientIP)}
     }, [clientIP])
