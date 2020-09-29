@@ -10,7 +10,7 @@ export const getClientIP = async () => {
 }
 
 export const getIPLocation = async (ipAddress) => {
-    return fetch(`${IPV_URL}/${ipAddress}/${IPV_ENDPOINTS.country_name}`)
+    return fetch(`${IPV_URL}/${ipAddress}`)
         .then(resp => resp.json())
         .then(json => {
             return json.data.country_name
