@@ -3,7 +3,7 @@ import './App.css';
 import ClientCountry from './components/ClientCountry/ClientCountry';
 import LocalResults from './components/LocalResults/LocalResults';
 import RandomResults from './components/RandomResults/RandomResults';
-import {getClientIP, getCountryMacData, calculateMacs, getRandomCountryData} from './services/IPServices';
+import {getClientIP, getCountryMacData, calculateMacs, getRandomCountryData} from './services/AppServices';
 
 function App() {
 
