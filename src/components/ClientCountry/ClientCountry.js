@@ -6,10 +6,13 @@ const ClientCountry = (props) => {
     
 
     return (
-        <div>
-            <h4>Your IP: {props.clientIP}</h4>
-            <h6>You live in: {props.ipLocation}</h6>
-            <Form dollarAmt={props.dollarAmt} setDollarAmt={props.setDollarAmt} handleSubmit={props.handleSubmit} />
+        <div className='row bg-danger text-warning data-row'>
+            <div className='col-12'>
+                <h4>You live in: {props.ipLocation}</h4>
+            </div>
+            <div className='col-12'>
+                <Form dollarAmt={props.dollarAmt} setDollarAmt={props.setDollarAmt} handleSubmit={props.handleSubmit} />
+            </div>
         </div>
     )
 }

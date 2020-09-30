@@ -1,4 +1,11 @@
 .App {
-  text-align: center;
+    height: 100vh;
 }
 
+.data-row {
+    height: 33%
+}
+
+* {
+    border: 1px solid green;
+}

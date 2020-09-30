@@ -4,13 +4,13 @@ const Form = (props) => {
 
 
     return (
-        <div>
-            <form onSubmit={props.handleSubmit}>
-                <label htmlFor='dollarAmt'>Enter dollar amount:</label>
-                <input type='number' id='dollarAmt' value={props.dollarAmt} onChange={(e) => {props.setDollarAmt(e.target.value)}}/>
-                <button type='submit'>Enter</button>
-            </form>
-        </div>
+        <form onSubmit={props.handleSubmit} className='w-100'>
+            <div className='form-group w-100'>
+                {/* <label htmlFor='dollarAmt'>Enter dollar amount:</label> */}
+                <input className='form-control' type='number' id='dollarAmt' placeholder='Enter Dollar Amount' onChange={(e) => {props.setDollarAmt(e.target.value)}}/>
+            </div>            
+            <button className='btn btn-outline-warning w-100' type='submit'>Enter</button>
+        </form>
     )
 }
 

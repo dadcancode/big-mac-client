@@ -1,16 +1,22 @@
 import React from 'react';
+import { calculateMacs } from '../../services/IPServices';
+
 
 const LocalResults = (props) => {
 
     
     return (
-        <div>
-            <h4>Local Results</h4>
+        <div className='row bg-warning text-danger data-row'>
+            <div className='col-12 h-25'>
+                <h4>Local Results</h4>
+            </div>
             {
-                props.numOfMacs ?
-                    <div>
-                        <p>{`You can by ${props.numOfMacs} Big Mac(s) in your country`}</p>
-                        <p>{`Your Dollar Purchase Parity (PPP) is: ${props.ppp}`}</p>
+                props.randCountry.Country ?
+                    <div className='col-12 d-flex h-75 justify-content-center'>
+                        <div className='row w-100 justify-content-around align-self-center h-100'>
+                            <div className='col-10 d-flex justify-content-center align-items-center'>'You can buy <span>{`${calculateMacs(props.dollarAmt, props.macData.Localprice)}`}</span> Big Mac(s) in your country'</div>
+                            <div className='col-10 d-flex justify-content-center align-items-center'>'Your Dollar Purchase Parity (PPP) is: <span>{`${props.ppp}`}</span>'</div>
+                        </div>
                     </div>
                     : null
             }

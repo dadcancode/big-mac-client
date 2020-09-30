@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import ClientCountry from './components/ClientCountry/ClientCountry';
 import LocalResults from './components/LocalResults/LocalResults';
-import {getClientIP, getCountryMacData, calculateMacs} from './services/IPServices';
+import RandomResults from './components/RandomResults/RandomResults';
+import {getClientIP, getCountryMacData, calculateMacs, getRandomCountryData} from './services/IPServices';
 
 function App() {
 
@@ -11,11 +12,14 @@ function App() {
   const [clientIP, setClientIP] = useState(null);
   const [ipLocation, setIPLocation] = useState(null);
   const [macData, setMacData] = useState({});
-  const [numOfMacs, setNumOfMacs] = useState(null);
+  const [randMacData, setRandMacData] = useState({});
 
-  const handleSubmit = (event) => {
+
+
+  const handleSubmit = async (event) => {
       event.preventDefault();
-      setNumOfMacs(calculateMacs(dollarAmt, macData.Localprice));    
+      let randCountry = await getRandomCountryData(ipLocation);
+      setRandMacData(randCountry);
   }
 
   useEffect(() => {
@@ -41,9 +45,10 @@ function App() {
   }, [ipLocation]);
 
   return (
-    <div className="App">
+    <div className="App container-fluid">
       <ClientCountry dollarAmt={dollarAmt} setDollarAmt={setDollarAmt} clientIP={clientIP} ipLocation={ipLocation} handleSubmit={handleSubmit}/>
-      <LocalResults numOfMacs={numOfMacs} ppp={macData.DollarPPP}/>
+      <LocalResults macData={macData} randCountry={randMacData} dollarAmt={dollarAmt} ppp={macData.DollarPPP}/>
+      <RandomResults randCountry={randMacData} dollarAmt={dollarAmt} localDollarprice={macData.Dollarprice} localLocalPrice={macData.Localprice}/>
     </div>
   );
 }
