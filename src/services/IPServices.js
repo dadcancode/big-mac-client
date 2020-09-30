@@ -1,7 +1,7 @@
-import { API_URL, IPV_ENDPOINTS, IPV_URL } from "../config"
+import { API_URL, ENDPOINTS } from "../config"
 
 export const getClientIP = async () => {
-    return fetch(API_URL)
+    return fetch(`${API_URL}/${ENDPOINTS.index}`)
             .then(resp => resp.json())
             .then(json => {
                 console.log(json)
@@ -9,11 +9,19 @@ export const getClientIP = async () => {
             })
 }
 
-export const getIPLocation = async (ipAddress) => {
-    return fetch(API_URL)
-        .then(resp => resp.json())
-        .then(json => {
-            return json
-        })
+export const getCountryMacData = async (country) => {
+    return fetch(`${API_URL}/${ENDPOINTS.macData}/${country}`)
+            .then(resp => resp.json())
+            .then(json => {
+                console.log(json);
+                return json
+            })
+}
 
+export const calculateMacs = (dollarAmt, localPrice) => {
+    if(dollarAmt < localPrice) {
+        return 'Whoops, the Mac costs a bit more than that amount'
+    } else {
+        return Math.floor(dollarAmt / localPrice);
+    }
 }

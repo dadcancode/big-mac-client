@@ -1,9 +1,9 @@
-const API_URL = "https://peaceful-tor-12984.herokuapp.com/mac";
+const API_URL = "https://peaceful-tor-12984.herokuapp.com";
 
-const IPV_URL = "https://ipvigilante.com/json";
-
-const IPV_ENDPOINTS = {
-    country_name: 'country_name'
+const ENDPOINTS = {
+    index: 'mac',
+    macData: 'mac/macData'
 }
 
-export { API_URL, IPV_URL, IPV_ENDPOINTS };
+
+export { API_URL, ENDPOINTS };

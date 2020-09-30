@@ -1,35 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { getClientIP, getIPLocation } from '../../services/IPServices';
+import React from 'react';
+import Form from '../Form/Form';
 
-const UserCountry = () => {
+const ClientCountry = (props) => {
 
-    const [clientIP, setClientIP] = useState(null);
-    const [ipLocation, setIPLocation] = useState('');
-
-    useEffect(() => {
-        const fetchClientIP = async () => {
-            let address = await getClientIP();
-            console.log(address);
-            setClientIP(address.ip);
-            setIPLocation(address.location)
-        }
-        fetchClientIP();
-    }, [])
-
-    useEffect(() => {
-        const locateIP = async (ipAddress) => {
-            let location = await getIPLocation(ipAddress);
-            
-        }
-        if(clientIP) {locateIP(clientIP)}
-    }, [clientIP])
+    
 
     return (
         <div>
-            <h4>Your IP: {clientIP}</h4>
-            <h6>You live in: {ipLocation}</h6>
+            <h4>Your IP: {props.clientIP}</h4>
+            <h6>You live in: {props.ipLocation}</h6>
+            <Form dollarAmt={props.dollarAmt} setDollarAmt={props.setDollarAmt} handleSubmit={props.handleSubmit} />
         </div>
     )
 }
 
-export default UserCountry;
+export default ClientCountry;
