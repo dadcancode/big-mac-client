@@ -9,20 +9,13 @@
 }
 
 * {
-    /* border: 1px solid green; */
+    border: 1px solid green;
 }
 
-span {
-    margin: 0 .5em;
-    font-size: 3vh;
-}
 
 @media (min-width: 768px) {
     .App {
         font-size: 3.25vh;
     }
 
-    span {
-        font-size: 4.5vh;
-    }
 }
